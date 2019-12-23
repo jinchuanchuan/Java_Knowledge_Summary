@@ -6,5 +6,9 @@ package com.jcc.java.spi;
  * @author: jinchuanchuan1@le.com
  * @create: 2019-12-20 16:58
  **/
-public class SpiInterfaceImpl {
+public class SpiInterfaceImpl implements SpiInterface {
+    @Override
+    public void println() {
+        System.out.println("----------SPI Demo---------");
+    }
 }
