@@ -2,6 +2,7 @@ package com.jcc.java.spi;
 
 import com.jcc.java.spi.domyself.MyDriver;
 import org.junit.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -23,7 +24,7 @@ import java.util.ServiceLoader;
 @SpringBootTest
 public class SpiDemoTest {
 
-    @Test
+//    @Test
     public void TestSpi(){
         ServiceLoader load = ServiceLoader.load(SpiInterface.class);
         Iterator<SpiInterface> iterator = load.iterator();
@@ -48,5 +49,13 @@ public class SpiDemoTest {
 //        Class.forName("com.jcc.java.spi.domyself.MyDriver");
 //        Connection mysqlConnection = new MyDriver().connect(url, new Properties());
 //        System.out.println(mysqlConnection.toString());
+    }
+    @Test
+    public void test01() {
+        if (StringUtils.isBlank("123") && StringUtils.isBlank(null)) {
+            System.out.println("-----------");
+        } else {
+            System.out.println("2222222222");
+        }
     }
 }
