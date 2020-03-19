@@ -1,5 +1,6 @@
 package com.jcc.java.spi;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jcc.java.spi.domyself.MyDriver;
 import org.junit.Test;
 import org.junit.platform.commons.util.StringUtils;
@@ -10,9 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.Properties;
-import java.util.ServiceLoader;
+import java.util.*;
 
 /**
  * @program: javaknowledge->SpiDemoTest
@@ -50,12 +49,25 @@ public class SpiDemoTest {
 //        Connection mysqlConnection = new MyDriver().connect(url, new Properties());
 //        System.out.println(mysqlConnection.toString());
     }
+    public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     @Test
     public void test01() {
-        if (StringUtils.isBlank("123") && StringUtils.isBlank(null)) {
-            System.out.println("-----------");
-        } else {
-            System.out.println("2222222222");
+//        if (StringUtils.isBlank("123") && StringUtils.isBlank(null)) {
+//            System.out.println("-----------");
+//        } else {
+//            System.out.println("2222222222");
+//        }
+        Map<String, String> vipInfoMap = vipInfoMap = new HashMap<String, String>();;
+        vipInfoMap.put(null,"1");
+//        Object o = vipInfoMap;
+//        boolean b = o instanceof String;
+//        System.out.println(b);
+        try {
+            OBJECT_MAPPER.writeValueAsString(vipInfoMap);
+        } catch (Exception e) {
+            System.out.println("-------" + e);
         }
+
+
     }
 }
