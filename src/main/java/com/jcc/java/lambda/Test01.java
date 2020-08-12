@@ -1,6 +1,11 @@
 package com.jcc.java.lambda;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @program: javaknowledge->Test01
@@ -24,7 +29,7 @@ public class Test01 {
         (int a, int b) -> a * b;
         //比较两个对象
         (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight())*/
-        test001();
+        test03();
     }
     public static void test001() {
         Test01 test01 = new Test01();
@@ -51,6 +56,41 @@ public class Test01 {
 
     }
 
+    public static void test02() {
+        Apple a1 = new Apple("01", 1.1);
+        Apple a2 = new Apple("01", 2.1);
+        Apple a3 = new Apple("01", 3.1);
+        Apple a4 = new Apple("01", 4.1);
+        Apple a5 = new Apple("01", 5.1);
+        Apple a6 = new Apple("01", 6.1);
+        Apple a7 = new Apple("01", 7.1);
+        Apple a8 = new Apple("01", 8.1);
+        Apple a9 = new Apple("01", 9.1);
+        Apple a10 = new Apple("01", 10.1);
+
+        List<Apple> list = new ArrayList<Apple>();
+        list.add(a1);
+        list.add(a2);
+        list.add(a3);
+        list.add(a4);
+        list.add(a5);
+        list.add(a6);
+        list.add(a7);
+        list.add(a8);
+        list.add(a9);
+        list.add(a10);
+        System.out.println("before: " + Arrays.toString(list.toArray()));
+        list = list.stream().filter(t -> t.getWeight() > 6).collect(toList());
+        System.out.println("after: " + Arrays.toString(list.toArray()));
+        //System.out.println("collect: " + Arrays.toString(collect.toArray()));
+    }
+
+    public static void test03() {
+        Integer integer = 1070;
+        String str =  "1070";
+        System.out.println(integer.equals(str));
+        System.out.println(integer.toString().equals(str));
+    }
     interface GreetingService {
         void sayHello(String name);
     }

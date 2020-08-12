@@ -10,6 +10,11 @@ public class Apple implements Comparable {
     private String color;
     private Double weight;
 
+    public Apple(String color, Double weight) {
+        this.color = color;
+        this.weight = weight;
+    }
+
     public String getColor() {
         return color;
     }
