@@ -1,4 +1,4 @@
-package com.jcc.pattern.visitorPattern;
+package com.jcc.pattern.v01.visitorPattern;
 
 import java.util.ArrayList;
 import java.util.Iterator;

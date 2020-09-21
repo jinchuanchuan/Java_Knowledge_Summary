@@ -1,4 +1,4 @@
-package com.jcc.pattern.templateMethodPattern;
+package com.jcc.pattern.v01.templateMethodPattern;
 
 /**
  * @program: javaknowledge->TemplateMethodPattern

@@ -18,4 +18,10 @@ public class SortUtils {
         }
         return arr;
     }
+
+    public static void swap(int i, int j) {
+        int temp = i;
+        i = j;
+        j = temp;
+    }
 }
