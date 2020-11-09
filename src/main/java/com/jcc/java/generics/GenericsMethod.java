@@ -107,4 +107,13 @@ public class GenericsMethod {
             return this.name + "," + this.score;
         }
     }
+
+//    private <K extends A, E extends B> E test(K arg1, E arg2){
+//        E result = arg2;
+//        arg2.compareTo(arg1);
+//        //.....
+//        return result;
+//    }
+
+
 }

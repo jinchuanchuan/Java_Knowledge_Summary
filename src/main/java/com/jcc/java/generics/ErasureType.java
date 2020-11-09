@@ -8,4 +8,11 @@ package com.jcc.java.generics;
  **/
 public class ErasureType {
 //上界通配符
+
+    public static void main(String[] args) {
+        Integer app = null;
+        if (1 != app) {
+            System.out.println("ok");
+        }
+    }
 }
