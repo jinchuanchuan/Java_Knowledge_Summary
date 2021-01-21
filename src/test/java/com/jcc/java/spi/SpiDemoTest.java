@@ -3,9 +3,9 @@ package com.jcc.java.spi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jcc.java.spi.domyself.MyDriver;
 import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
-import org.junit.Test;
+//import org.junit.Test;
 import org.junit.platform.commons.util.StringUtils;
-import org.junit.runner.RunWith;
+//import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,7 +25,7 @@ import static java.util.regex.Pattern.compile;
  * @author: jinchuanchuan1@le.com
  * @create: 2019-12-20 17:07
  **/
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpiDemoTest {
 
@@ -90,7 +90,7 @@ public class SpiDemoTest {
         char[] chars = str1.toCharArray();
         System.out.println("chars=" + chars);
     }
-    @Test
+//    @Test
     public void test03() {
 //        isPalindrome01(10);
         int[] ints = {2, 3, 4};

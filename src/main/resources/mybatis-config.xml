@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <!-- 注意：environments标签，当mybatis和spring整合之后，这个标签是不用配置的 -->
+
+    <!-- 可以配置多个运行环境，但是每个 SqlSessionFactory 实例只能选择一个运行环境
+      一、development:开发模式
+       二、work：工作模式-->
+    <properties resource="db.properties"></properties>
+
+    <!-- 开启懒加载配置 -->
+    <settings>
+        <!-- 全局性设置懒加载。如果设为‘false'，则所有相关联的都会被初始化加载。 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 当设置为‘true'的时候，懒加载的对象可能被任何懒属性全部加载。否则，每个属性都按需加载。 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--开启二级缓存  -->
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="localCacheScope" value="SESSION"/>
+    </settings>
+
+    <!-- 定义别名 -->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="com.jcc.mybatis.dto.User" alias="user"></typeAlias>-->
+<!--    </typeAliases>-->
+
+    <!-- 定义别名 -->
+    <typeAliases>
+        <!-- mybatis自动扫描包中的po类，自动定义别名，别名是类名(首字母大写或小写都可以,一般用小写) -->
+        <package name="com.jcc.mybatis.dto"/>
+    </typeAliases>
+
+    <environments default="development">
+        <!--id属性必须和上面的default一样  -->
+        <environment id="development">
+            <!--事务管理器
+                一、JDBC：这个配置直接简单使用了 JDBC 的提交和回滚设置。它依赖于从数据源得到的连接来管理事务范围
+                二、MANAGED：这个配置几乎没做什么。它从来不提交或回滚一个连接。而它会让容器来管理事务的整个生命周期
+                    比如 spring 或 JEE 应用服务器的上下文，默认情况下，它会关闭连接。然而一些容器并不希望这样，
+                    因此如果你需要从连接中停止它，就可以将 closeConnection 属性设置为 false，比如：
+                    <transactionManager type="MANAGED">
+                        <property name="closeConnection" value="false"/>
+                    </transactionManager>
+              -->
+            <transactionManager type="JDBC"/>
+            <!--dataSource 元素使用标准的 JDBC 数据源接口来配置 JDBC 连接对象源  -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!-- 注册userMapper.xml文件，
+        userMapper.xml位于com.jcc.mybatis.charter02.mapper这个包下，所以resource写成com/jcc/mybatis/charter02/mapper/userMapper.xml-->
+<!--        <mapper resource="com/jcc/mybatis/charter02/mapper/userMapper.xml"/>-->
+<!--        <mapper class="com.jcc.mybatis.charter03.mapper.UserMapper"/>-->
+<!--        <mapper class="com.jcc.mybatis.charter05.mapper.UserMapper"/>-->
+        <!-- 通过OrdersMapper接口注册OrdersMapper.xml文件，
+            必须保证：接口和xml在同一个包下，而且名字一样
+            OrdersMapper接口的方法名和OrdersMapper.xml文件的id一样
+            OrdersMapper接口的输出输出参数和OrdersMapper.xml文件resultType，parameterType类型一样
+         -->
+<!--        <mapper class="com.jcc.mybatis.charter07.mapper.OrdersMapper"/>-->
+<!--        <mapper class="com.jcc.mybatis.charter07.mapper.UserMapper"/>-->
+
+        <!-- 批量加载mapper指定 mapper 接口的包名，mybatis自动扫描包下的mapper接口进行加载 -->
+        <package name="com.jcc.mybatis.charter02.mapper"/>
+        <package name="com.jcc.mybatis.charter03.mapper"/>
+        <package name="com.jcc.mybatis.charter05.mapper"/>
+        <package name="com.jcc.mybatis.charter07.mapper"/>
+        <package name="com.jcc.mybatis.charter08.mapper"/>
+        <package name="com.jcc.mybatis.charter09.mapper"/>
+    </mappers>
+
+</configuration>

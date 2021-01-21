@@ -11,9 +11,13 @@ import java.util.concurrent.Executors;
  **/
 public class SingleThreadExecutor {
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        for (int i = 0; i < 1000; i++) {
-            executorService.execute(new FixedThreadPoolTest.Task());
-        }
+//        ExecutorService executorService = Executors.newSingleThreadExecutor();
+//        for (int i = 0; i < 1000; i++) {
+//            executorService.execute(new FixedThreadPoolTest.Task());
+//        }
+        Object str = null;
+
+        Integer inter = (Integer)str;
+        System.out.println(inter);
     }
 }

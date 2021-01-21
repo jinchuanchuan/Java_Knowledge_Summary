@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcc.mybatis.charter05.mapper.UserMapper">
+
+
+    <!-- 根据 id 查询 user 表中的数据
+       id:唯一标识符，此文件中的id值不能重复
+       resultType:返回值类型，一条数据库记录也就对应实体类的一个对象
+       parameterType:参数类型，也就是查询条件的类型
+    -->
+    <select id="selectUserById"
+            resultType="User" parameterType="int">
+        <!-- 这里和普通的sql 查询语句差不多，后面的 #{id}表示占位符，里面不一定要写id,写啥都可以，但是不要空着 -->
+        select * from user where id = #{id1}
+    </select>
+
+
+
+    <!-- 根据 id 更新 user 表的数据 -->
+    <update id="updateUserById" parameterType="User">
+        update user u
+        <!-- <set>
+            <if test="username != null and username != ''">
+                u.username = #{username},
+            </if>
+            <if test="sex != null and sex != ''">
+                u.sex = #{sex}
+            </if>
+        </set> -->
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username != null and username != ''">
+                u.username = #{username},
+            </if>
+            <if test="sex != null and sex != ''">
+                u.sex = #{sex},
+            </if>
+        </trim>
+
+        where id=#{id}
+    </update>
+
+
+    <!-- 向 user 表插入一条数据 -->
+    <insert id="insertUser" parameterType="User">
+        <!-- 将插入的数据主键返回到 user 对象中
+             keyProperty:将查询到的主键设置到parameterType 指定到对象的那个属性
+             select LAST_INSERT_ID()：查询上一次执行insert 操作返回的主键id值，只适用于自增主键
+             resultType:指定 select LAST_INSERT_ID() 的结果类型
+             order:AFTER，相对于 select LAST_INSERT_ID()操作的顺序
+         -->
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into user(username,sex,birthday,address)
+        value(#{username},#{sex},#{birthday},#{address})
+    </insert>
+
+
+
+    <!-- 根据 id 删除 user 表的数据 -->
+    <delete id="deleteUserById" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+
+</mapper>
