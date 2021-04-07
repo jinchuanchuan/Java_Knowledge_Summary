@@ -2,7 +2,7 @@ package com.interview.javabasic.reflect;
 
 public class ClassLoaderChecker {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        MyClassLoader m = new MyClassLoader("/Users/baidu/Desktop/", "myClassLoader");
+        MyClassLoader m = new MyClassLoader("/Users/leeco/Desktop/", "myClassLoader");
         Class c = m.loadClass("Wali");
         System.out.println(c.getClassLoader());
         System.out.println(c.getClassLoader().getParent());

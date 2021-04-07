@@ -2,6 +2,8 @@ package com.wukong.concurrency.collections.queue;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * 描述：     TODO
@@ -12,6 +14,7 @@ public class ArrayBlockingQueueDemo {
     public static void main(String[] args) {
 
         ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<String>(3);
+        new CopyOnWriteArraySet<>();
 
         Interviewer r1 = new Interviewer(queue);
         Consumer r2 = new Consumer(queue);

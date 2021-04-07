@@ -1,6 +1,8 @@
 package com.jcc.algorichms.algLiuyubo.Charter03.QuickSort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -36,7 +38,10 @@ public class Main {
 
         SortTestHelper.testSort("com.jcc.algorichms.algLiuyubo.Charter03.QuickSort.MergeSort", arr1);
         SortTestHelper.testSort("com.jcc.algorichms.algLiuyubo.Charter03.QuickSort.QuickSort", arr2);
-
+        List<Integer> res = new ArrayList<>();
+        Integer[] integers = res.toArray(new Integer[res.size()]);
+        Integer[] arr = new Integer[res.size()];
         return;
+
     }
 }
