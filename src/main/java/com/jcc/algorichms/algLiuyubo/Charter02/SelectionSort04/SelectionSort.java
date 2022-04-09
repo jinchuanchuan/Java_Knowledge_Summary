@@ -32,8 +32,8 @@ public class SelectionSort {
     public static void main(String[] args) {
 
         // 测试排序算法辅助函数
-        int N = 100000;
-        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
+        int N = 10000;
+        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 10000);
         SortTestHelper.testSort("com.jcc.algorichms.algLiuyubo.Charter02.SelectionSort04.SelectionSort", arr);
 
         return;

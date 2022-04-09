@@ -33,6 +33,7 @@ public class MergeSort {
         int i = l;
         int j = mid + 1;
         for (int k = l; k <= r; k++) {
+            // 要先判断索引i，j的合法性，再进行下面的逻辑判断。
             if (i > mid) { // 如果左半部分元素已经全部处理完毕
                 arr[k] = aux[j-l];
                 j++;

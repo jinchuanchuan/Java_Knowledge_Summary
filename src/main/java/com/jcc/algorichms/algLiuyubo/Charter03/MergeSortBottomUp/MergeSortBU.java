@@ -30,8 +30,9 @@ public class MergeSortBU{
 
     public static void sort(Comparable[] arr) {
         int n = arr.length;
-        for (int sz = 1; sz < n; sz += sz) {
+        for (int sz = 1; sz < n; sz += sz) { //每次1、2、4、8元素，以此类推
             for (int i = 0; i + sz < n; i += sz + sz) {
+                // 对 arr[i + sz - 1] 和  arr[i+sz...i+2*sz-1]进行归并
                 merge(arr, i, i + sz - 1,Math.min(i + sz + sz - 1, n-1));
             }
         }

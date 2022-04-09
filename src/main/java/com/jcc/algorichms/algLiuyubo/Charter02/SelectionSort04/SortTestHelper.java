@@ -51,7 +51,9 @@ public class SortTestHelper {
 
             assert isSorted( arr );
 
-            System.out.println( sortClass.getSimpleName()+ " : " + (endTime-startTime) + "ms" );
+            printArray(arr);
+
+            System.out.println( "消耗时间：" + sortClass.getSimpleName()+ " : " + (endTime-startTime) + "ms" );
         } catch (Exception e) {
             e.printStackTrace();
         }

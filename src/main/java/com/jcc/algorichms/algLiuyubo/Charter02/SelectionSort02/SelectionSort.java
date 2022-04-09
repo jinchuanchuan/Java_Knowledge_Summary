@@ -1,5 +1,7 @@
 package com.jcc.algorichms.algLiuyubo.Charter02.SelectionSort02;
 
+import java.util.Arrays;
+
 /**
  * @program: javaknowledge->SelectionSort
  * @description: 选择排序
@@ -68,5 +70,7 @@ public class SelectionSort {
             System.out.println(d[i]);
         }
 
+
+        Arrays.sort(d);
     }
 }

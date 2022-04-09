@@ -6,9 +6,9 @@ package com.jcc.algorichms.algLiuyubo.Charter02.SelectionSort02;
  * @author: jinchuanchuan1@le.com
  * @create: 2020-12-27 14:50
  **/
-public class Student implements Comparable {
-    private String name;
-    private int score;
+public class Student implements Comparable<Object> {
+    private final String name;
+    private final int score;
 
     public Student(String name, int score) {
         this.score = score;
