@@ -11,8 +11,8 @@ public class BinarySearch {
     public static int binarySearch(Comparable[] arr, int n, Comparable target) {
         int l = 0;
         int r = n;
-        // [l,r] 的闭区间去寻找target
-        while (l < r) { // l = r 的时候区间内也是有值的
+        // 在[l,r) 的范围去寻找target
+        while (l < r) { // 当 l = r 时，区间[l,r)依然是无效的。
 //            int mid = (l+r)/2;
             int mid = l + (r-l)/2;
             if (arr[mid].compareTo(target) == 0) {
