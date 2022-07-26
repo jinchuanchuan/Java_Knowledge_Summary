@@ -46,10 +46,11 @@ public class QuickSort2Ways {
 //        return j;
 
         // --------jcc------
+        // 随机选择，避免走最差的情况。
         swap(arr, l, (int)(Math.random() * (r-l+1)) + l);
         Comparable t = arr[l];
-
-        int i = l+1 ,j = r;
+        // arr[l+1...i) <= v; arr(j...r] >= v;
+        int i = l+1 ,j = r; // 因为是开区间，所以都是空的
         while(true) {
             while (i <= r && arr[i].compareTo(t) < 0) {
                 i++;

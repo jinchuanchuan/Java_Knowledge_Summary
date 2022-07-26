@@ -26,11 +26,19 @@ public class QuickSort {
     // 返回p, 使得arr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
     private static int partition(Comparable[] arr, int l, int r) {
         Comparable v = arr[l];
-        int j = l;
+        // arr[l+1...j] < v; arr[j+1...i) > v
+        int j = l; // j 设置的很巧妙，为l，在arr[l+1...j]是空的，在arr[j+1...i)，因为是开区间，所以也是空的
+        // 循环从 l + 1，开始，l位置的值就是v
         for (int i = l + 1; i <= r; i++) {
+            // 隐含考虑的情况，当arr[i]大于v的时候，不用考虑，i++就可以。
+
+            // 需要考虑的是arr[i] < v 的时候。
             if (arr[i].compareTo(v) < 0) {
+                // 比较清晰的写法是
+                swap(arr, i, j + 1);
                 j++;
-                swap(arr, i, j);
+//                j++;
+//                swap(arr, i, j);
             }
         }
         swap(arr, j, l);
