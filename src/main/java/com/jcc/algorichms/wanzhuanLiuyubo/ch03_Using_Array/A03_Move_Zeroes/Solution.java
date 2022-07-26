@@ -10,6 +10,8 @@ import java.util.List;
  * @create: 2021-01-13 18:46
  **/
 public class Solution {
+    // 时间复杂度：O（n）
+    // 空间复杂度：O（n），因为利用了额外的辅助空间
     public void moveZeroes(int[] nums) {
         List<Integer> nonZeroElements = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
